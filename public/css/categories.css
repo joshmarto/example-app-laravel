@@ -1,0 +1,32 @@
+p {
+    text-align: center;
+}
+
+.card {
+    width: 18rem;
+    margin: 2rem;
+}
+
+.card p {
+    text-align: justify;
+}
+
+.categories {
+    background-color: lightgray;
+    display: flex;
+}
+
+@media screen and (max-width: 1024px) {
+    .categories {
+        background-color: lightslategray;
+        display: block;
+        align-content: center;
+        align-items: center;
+        padding: 0 5px 0 5px;
+    }
+
+    .categories .card {
+        width: 50rem;
+        margin: 2rem;
+    }
+}
