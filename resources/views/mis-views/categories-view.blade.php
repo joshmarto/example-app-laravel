@@ -1,18 +1,14 @@
 <?php
-
-
-		function card( $src, $alt, $cardTitle, $txt, $url, $goTo ){ ?>
-            <div class="card">
-                <img class="card-img-top" src="<?php echo $src; ?>" alt="<?php echo $alt; ?>" />
-                <div class="card-body">
-                  <h5 class="card-title"><?php echo $cardTitle; ?></h5>
-                  <p class="card-text"><?php echo $txt; ?></p>
-                  <a href="<?php echo $url; ?>" class="btn btn-success"><?php echo $goTo; ?></a>
-                </div>
-            </div>
-<?php   } ?>
-
-
+	function card( $src, $alt, $cardTitle, $txt, $url, $goTo ){ ?>
+		<div class="card">
+			<img class="card-img-top" src="<?php echo $src; ?>" alt="<?php echo $alt; ?>" />
+			<div class="card-body">
+				<h5 class="card-title"><?php echo $cardTitle; ?></h5>
+				<p class="card-text"><?php echo $txt; ?></p>
+				<a href="<?php echo $url; ?>" class="btn btn-success"><?php echo $goTo; ?></a>
+			</div>
+		</div>
+<?php  }; ?>
 
 <!DOCTYPE html>
 	<head>
@@ -23,7 +19,7 @@
 		<link rel='shortcut icon' href='<?php echo $icon; ?>' type='png'>
 		<link rel='stylesheet' href='<?php echo $style; ?>'>
         <link rel="stylesheet" href="../css/categories.css">
-		<title><?php echo $title; ?></title>
+		<title>{{ $title }}</title>
 	</head>
 	<body>
 		<!-- Header -->
@@ -32,27 +28,27 @@
 				<a href="./index.php" class="navbar-brand">Cool Store GT</a>
 				<div class="collapse navbar-collapse">
 					<ul class="navbar-nav mr-auto">
-						<li class="nav-item <?php echo ( $location == 'welcome' ) ? 'active' : ''; ?>" id="nav-item-home">
+						<li class="nav-item {{ ( $location == 'welcome' ) ? 'active' : ''; }}" id="nav-item-home">
 							<a class="nav-link" href="./index">Inicio <span class="sr-only">(current)</span></a>
 						</li>
-						<li class="nav-item <?php echo ( $location == 'categories' ) ? 'active' : ''; ?>" id="nav-item-categories">
+						<li class="nav-item {{ ( $location == 'categories' ) ? 'active' : ''; }}" id="nav-item-categories">
 							<a class="nav-link" href="./categories">Categorías</a>
 						</li>
-						<li class="nav-item <?php echo ( $location == 'contact' ) ? 'active' : ''; ?>" id="nav-item-contact">
+						<li class="nav-item {{ ( $location == 'contact' ) ? 'active' : ''; }}" id="nav-item-contact">
 							<a class="nav-link" href="./contact">Contacto</a>
 						</li>
-						<li class="nav-item <?php echo ( $location == 'misionVision' ) ? 'active' : ''; ?>" id="nav-item-mision-vision">
+						<li class="nav-item {{ ( $location == 'misionVision' ) ? 'active' : ''; }}" id="nav-item-mision-vision">
 							<a class="nav-link" href="./misionVision">Misión-Visión</a>
 						</li>
-						<?php	if ( $isLoggedIn ){ ?>
+						@if ( $isLoggedIn )
 								<li class="nav-item" id="nav-item-logout">
 									<a class="nav-link" href="./logout">Logout</a>
 								</li>
-							<?php } else{  ?>
+						@else
 								<li class="nav-item" id="nav-item-login">
-									<a class="nav-link <?php echo ( $location == 'login' ) ? 'active' : ''; ?>" href="./login">Login</a>
+									<a class="nav-link {{ ( $location == 'login' ) ? 'active' : ''; }}" href="./login">Login</a>
 								</li>
-						<?php }  ?>
+						@endif
 					</ul>
 				</div>
 			</nav>

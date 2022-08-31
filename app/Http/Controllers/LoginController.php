@@ -6,22 +6,16 @@
 
     use Illuminate\Routing\Controller as BaseController;
 
+    use App\Models\ViewFunctions;
+
 
     class LoginController extends BaseController
     {
         function index(){
 
-            $users = [
-                'luis' => ['password'=>'code', 'name' => 'Luis Déleon'],
-                'maria' => ['password'=>'marie', 'name' => 'Maria Ana'],
-                'josue' => ['password'=>123, 'name' => 'Josue Martinez'],
-            ];
+            $basicVars = ViewFunctions::basicNeeds('login', false, false);
 
-            return view('mis-views.login-view', [
-                'isLoggedIn' => false,
-                'location' => 'login',
-                'users' => $users,
-            ]);
+            return view('mis-views.login-view', $basicVars);
         }
     }
 
