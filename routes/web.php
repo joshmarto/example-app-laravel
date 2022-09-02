@@ -18,6 +18,8 @@ use App\Http\Controllers\MisionVisionController;
 
 use App\Http\Controllers\WelcomeController;
 
+use App\Http\Controllers\ContactoController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -44,3 +46,6 @@ Route::get('/categories/category={category?}', [CategoryController::class, 'get'
 Route::get('/categories/category={category}/product={product}', [ProductController::class, 'get']);
 Route::get('/contact', [ContactController::class, 'index']);
 Route::get('/misionVision', [MisionVisionController::class, 'index']);
+Route::get('/contacto', [ContactoController::class, 'index']);
+Route::post('/contacto', [ContactoController::class, 'send']);
+Route::get('/contactado', [ContactoController::class, 'contacted'])->name('contactado');
